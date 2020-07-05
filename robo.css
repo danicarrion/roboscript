@@ -1,0 +1,53 @@
+body {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#code {
+    width: 75%;
+    min-height: 200px;
+}
+
+#cells {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: black;
+    grid-gap: 4px;
+}
+
+#preview_panel {
+    padding: 4px;
+    background-color: black;
+    width: fit-content;
+}
+
+.header-cell {
+    background-color: white;
+    padding: 4px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    background-repeat: no-repeat;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    position: absolute;
+    z-index: 1;
+}

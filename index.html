@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>RoboScript</title>
+    <link rel="stylesheet" type="text/css" href="robo.css">
+</head>
+<body>
+    <div id="code_panel">
+        <div id="code_editor">
+            <p>Robot x: <input id="robo_x" value="0" />, y: <input id="robo_y" value="0" /></p>
+            <p>Caja x: <input id="box_x" />, y: <input id="box_y" /></p>
+            <textarea id="code"></textarea>
+            <button onclick="run()">Ejecutar</button>
+        </div>
+        <ul id="code_runner"></ul>
+    </div>
+    <div id="preview_panel">
+        <div id="cells">
+            <div class="header-cell"></div><div class="header-cell">0</div><div class="header-cell">1</div><div class="header-cell">2</div><div class="header-cell">3</div>
+        </div>
+    </div>
+    <script src="robo.js"  charset="UTF-8"></script>
+    <script src="box.js" charset="UTF-8"></script>
+    <script src="parser.js" charset="UTF-8"></script>
+    <script>
+        const cells = document.getElementById("cells");
+
+        // Crea la cuadrícula
+        for (let y = 0; y < 9; y++) {
+            const headerCell = document.createElement("div");
+            headerCell.className = "header-cell";
+            headerCell.appendChild(document.createTextNode(y));
+            cells.appendChild(headerCell);
+
+            for (let x = 0; x < 4; x++) {
+                const cell = document.createElement("div")
+                cell.className = "cell";
+                cell.id = "cell_" + x.toString() + y.toString();
+                cells.appendChild(cell);
+
+                const tooltip = document.createElement("div");
+                tooltip.className = "tooltip";
+                cell.appendChild(tooltip);
+
+                const tooltipText = document.createElement("div");
+                tooltipText.className = "tooltip-text";
+                tooltipText.id = "tooltip_" + x.toString() + y.toString();
+                tooltip.appendChild(tooltipText);
+            }
+        }
+    </script>
+</body>
+</html>
